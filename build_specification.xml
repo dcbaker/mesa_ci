@@ -193,8 +193,11 @@
     </project>
              
     <project name="traceValidator">
-    <prerequisite name="mesa"/>
+      <prerequisite name="mesa"/>
+      <prerequisite name="apitrace"/>
     </project>
+
+    <project name="apitrace"/>
 
   </projects>
 
