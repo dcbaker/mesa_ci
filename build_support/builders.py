@@ -522,9 +522,6 @@ class PiglitTester(object):
             exclude_tests += ["arb_buffer_storage.bufferstorage-persistent read"]
 
         if "hsw" in hardware:
-            exclude_tests += ["arb_gpu_shader5.arb_gpu_shader5-emitstreamvertex_nodraw"]
-
-        if "hsw" in hardware:
             exclude_tests += ["ext_framebuffer_multisample.accuracy"]
 
         if "snb" in hardware:
@@ -568,14 +565,8 @@ class PiglitTester(object):
             # 93355
             exclude_tests = exclude_tests + ["ext_framebuffer_multisample.accuracy",
                                              # TODO: bug
-                                             "arb_buffer_storage.bufferstorage-persistent",
-                                             # bug 99509
-                                             "arb_shader_image_load_store.qualifiers"]
+                                             "arb_buffer_storage.bufferstorage-persistent"]
             
-        if "ivb" in hardware or "bxt" in hardware:
-            # bug 96907
-            exclude_tests += ["arb_gpu_shader5.arb_gpu_shader5-emitstreamvertex_nodraw"]
-
         if "ivb" in hardware:
             # flaky
             exclude_tests += ["arb_shader_image_load_store.invalid"]
@@ -585,8 +576,7 @@ class PiglitTester(object):
             exclude_tests += ["opengl.1_1.getteximage-formats"]
 
         if "glk" in hardware:
-            exclude_tests += ["arb_gpu_shader5.arb_gpu_shader5-emitstreamvertex_nodraw",
-                              "ext_framebuffer_multisample.accuracy"]
+            exclude_tests += ["ext_framebuffer_multisample.accuracy"]
 
         exclude_cmd = []
         for test in exclude_tests:
