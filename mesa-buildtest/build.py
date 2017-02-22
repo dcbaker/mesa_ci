@@ -30,7 +30,8 @@ def main():
                          "--enable-glx-tls", 
                          "--enable-gles1",
                          "--enable-gles2",
-                         "--with-gallium-drivers=i915,svga,swrast,r300,r600,radeonsi,nouveau"]
+                         "--with-gallium-drivers=i915,svga,swrast,r300,r600,radeonsi,nouveau",
+                         "--with-vulkan-drivers=radeon"]
 
     if global_opts.config == 'debug':
         options.append('--enable-debug')
