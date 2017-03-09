@@ -99,7 +99,7 @@
       <prerequisite name="glescts-test" hardware="hsw" shard="4"/>
       <!-- only_for_type enforces the prerequisite when type matches
            the value. -->
-      <prerequisite name="glescts-test" hardware="bsw,byt,bxt" shard="8" only_for_type="daily"/>
+      <prerequisite name="glescts-test" hardware="bsw,byt,bxt,glk" shard="8" only_for_type="daily"/>
       <prerequisite name="glescts-test" hardware="g33,g45,ilk,g965,ivb,snb,kbl" shard="3" only_for_type="daily"/>
       <prerequisite name="glescts-test"
                     only_for_type="daily"
@@ -181,7 +181,7 @@
                     arch="m64"
                     shard="5"/>
 
-      <prerequisite name="crucible-test" arch="m64" hardware="bdw,skl,bsw,hsw,bxt,kbl"/>
+      <prerequisite name="crucible-test" arch="m64" hardware="bdw,skl,bsw,hsw,bxt,kbl,glk"/>
     </project>
 
     <project name="vulkancts"/>
@@ -233,7 +233,7 @@
       <prerequisite name="deqp-test" hardware="hsw,skl,kbl,bdw"/>
       <prerequisite name="deqp-test"
                     only_for_type="daily"
-                    hardware="snb,byt,bsw,ivb,bxt"/>
+                    hardware="snb,byt,bsw,ivb,bxt,glk"/>
       <prerequisite name="deqp-test"
                     only_for_type="daily"
                     arch="m32"
@@ -242,7 +242,7 @@
 
     <project name="cts-full">
       <prerequisite name="cts-test" hardware="hsw,bdw,skl" arch="m64"/>
-      <prerequisite name="cts-test" only_for_type="daily" hardware="bsw,bxt,kbl" arch="m64"/>
+      <prerequisite name="cts-test" only_for_type="daily" hardware="bsw,bxt,kbl,glk" arch="m64"/>
     </project>
 
     <project name="vulkan-and-gl">
