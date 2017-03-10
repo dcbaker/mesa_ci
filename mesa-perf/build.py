@@ -71,7 +71,7 @@ class MesaPerf:
                      "-mno-avx512vl", "-mno-avx512ifma", "-mno-avx512vbmi",
                      "-mno-clwb", "-mno-pcommit", "-mno-mwaitx", "--param",
                      "l1-cache-size=24", "--param", "l1-cache-line-size=64",
-                     "--param", "l2-cache-size=1024", "-mtune=generic"]
+                     "--param", "l2-cache-size=1024", "-mtune=generic"],
             "bxt" : [ "-march=silvermont", "-mmmx", "-mno-3dnow", "-msse",
                       "-msse2", "-msse3", "-mssse3", "-mno-sse4a", "-mcx16",
                       "-msahf", "-mmovbe", "-maes", "-msha", "-mpclmul",
@@ -89,7 +89,7 @@ class MesaPerf:
                       "-mno-mwaitx", "-mno-clzero", "-mno-pku", "--param",
                       "l1-cache-size=24", "--param",
                       "l1-cache-line-size=64", "--param",
-                      "l2-cache-size=1024", "-mtune=generic"]
+                      "l2-cache-size=1024", "-mtune=generic"],
             }
         
     def build(self):
