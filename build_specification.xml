@@ -95,17 +95,7 @@
     </project>
 
     <project name="glescts-full">
-      <prerequisite name="glescts-test" hardware="skl,bdw" shard="5"/>
-      <prerequisite name="glescts-test" hardware="hsw" shard="4"/>
-      <!-- only_for_type enforces the prerequisite when type matches
-           the value. -->
-      <prerequisite name="glescts-test" hardware="bsw,byt,bxt,glk" shard="8" only_for_type="daily"/>
-      <prerequisite name="glescts-test" hardware="g33,g45,ilk,g965,ivb,snb,kbl" shard="3" only_for_type="daily"/>
-      <prerequisite name="glescts-test"
-                    only_for_type="daily"
-                    arch="m32"
-                    hardware="snb,ivb,hsw,bdw,skl,kbl"
-                    shard="5"/>
+      <prerequisite name="glescts-test" hardware="glk" shard="8"/>
     </project>
 
     <project name="piglit">
@@ -136,19 +126,7 @@
     </project>
 
     <project name="piglit-full">
-      <prerequisite name="piglit-test"
-                    hardware="snbgt1,snbgt2,ivbgt1,ivbgt2,hswgt1,hswgt2,hswgt3e,bdwgt3e,sklgt2,sklgt4e,kbl"
-                    arch="m64"/>
-      <prerequisite name="piglit-test"
-                    only_for_type="daily"
-                    hardware="snbgt1,snbgt2,ivbgt1,ivbgt2,hswgt1,hswgt2,hswgt3e,bdwgt3e,sklgt2,sklgt4e,kbl"
-                    arch="m32"/>
-      <prerequisite only_for_type="daily" name="piglit-test" hardware="ilk,bsw,byt,g33,g45,g965,bdwgt2" arch="m64,m32"/>
-      <!-- do not test 32 bit for limited platforms -->
-      <prerequisite only_for_type="daily" name="piglit-test" hardware="bxt,glk" arch="m64"/>
-
-      <prerequisite name="piglit-cpu-test" hardware="fastgpu" arch="m64"/>
-      <prerequisite only_for_type="daily" name="piglit-cpu-test" hardware="fastgpu" arch="m32"/>
+      <prerequisite name="piglit-test" hardware="glk" arch="m64"/>
     </project>
     
     <project name="shaderc"/>
@@ -174,14 +152,12 @@
     </project>
 
     <project name="vulkancts-full">
-      <prerequisite name="vulkancts-test" hardware="bdw,hsw,skl,kbl" arch="m64" shard="2"/>
       <prerequisite name="vulkancts-test"
-                    only_for_type="daily"
-                    hardware="bsw,glk,bxt,kbl"
+                    hardware="glk"
                     arch="m64"
                     shard="5"/>
 
-      <prerequisite name="crucible-test" arch="m64" hardware="bdw,skl,bsw,hsw,bxt,kbl,glk"/>
+      <prerequisite name="crucible-test" arch="m64" hardware="glk"/>
     </project>
 
     <project name="vulkancts"/>
@@ -194,7 +170,6 @@
     <!-- all-test has no build.py, and exists only to provide
          dependency relationships. -->
     <project name="all-test">
-      <prerequisite name="scons-buildtest" hardware="builder"/>
       <prerequisite name="piglit-full"/>
       <prerequisite name="deqp-full"/>
       <prerequisite name="mesa-buildtest" hardware="builder" arch="m64"/>
@@ -230,19 +205,12 @@
     </project>
 
     <project name="deqp-full">
-      <prerequisite name="deqp-test" hardware="hsw,skl,kbl,bdw"/>
       <prerequisite name="deqp-test"
-                    only_for_type="daily"
-                    hardware="snb,byt,bsw,ivb,bxt,glk"/>
-      <prerequisite name="deqp-test"
-                    only_for_type="daily"
-                    arch="m32"
-                    hardware="snb,ivb,hsw,bdw,skl,kbl"/>
+                    hardware="glk"/>
     </project>
 
     <project name="cts-full">
-      <prerequisite name="cts-test" hardware="hsw,bdw,skl" arch="m64"/>
-      <prerequisite name="cts-test" only_for_type="daily" hardware="bsw,bxt,kbl,glk" arch="m64"/>
+      <prerequisite name="cts-test" hardware="glk" arch="m64"/>
     </project>
 
     <project name="vulkan-and-gl">
