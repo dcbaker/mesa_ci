@@ -116,10 +116,11 @@ class DeqpTrie:
         if list == type(blacklist):
             if not blacklist:
                 return
-            bltrie = DeqpTrie()
             for test in blacklist:
+                bltrie = DeqpTrie()
                 bltrie.add_line(test)
-            blacklist = bltrie
+                self.filter(bltrie)
+            return
         
         if not blacklist._trie and self._trie:
             # caller is filtering out a group of tests with a common
@@ -129,7 +130,11 @@ class DeqpTrie:
             if group not in self._trie:
                 continue
             self._trie[group].filter(blacklist._trie[group])
-            if len(self._trie[group]._trie) == 0:
+            if len(blacklist._trie[group]._trie) == 0:
+                # filtering the subtree
+                del(self._trie[group])
+            elif len(self._trie[group]._trie) == 0:
+                # all subtests were filtered by subgroup
                 del(self._trie[group])
 
     def filter_whitelist(self, whitelist, prefix=""):
