@@ -566,6 +566,10 @@ class PiglitTester(object):
         o = Options()
 
         mv = mesa_version()
+        if o.hardware == 'cnl' and mv < [18, 0]:
+            print('WARNING: cnl not supported until 18.0')
+            return
+
         if o.hardware == "bxt" or o.hardware == "kbl":
             if mv[:2] == [11, 0]:
                 print "WARNING: bxt not supported by stable mesa"
