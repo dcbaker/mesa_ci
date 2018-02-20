@@ -569,6 +569,9 @@ class PiglitTester(object):
         if o.hardware == 'cnl' and mv < [18, 0]:
             print('WARNING: cnl not supported until 18.0')
             return
+        else:
+            print('WAT? {}'.format(mv))
+            sys.exit(-1)
 
         dev_ids = { "byt" : "0x0F32",
                     "g45" : "0x2E22",
