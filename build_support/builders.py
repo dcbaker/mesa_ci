@@ -75,7 +75,7 @@ def mesa_version():
         version_string = tokens[1].strip()
         version_tokens = version_string.split()
         assert len(version_tokens) >= 3
-        return version_tokens[2]
+        return [int(t) for t in version_tokens[2].split('.')]
 
 def cpu_count():
     cpus = multiprocessing.cpu_count() + 1
@@ -567,17 +567,17 @@ class PiglitTester(object):
 
         mv = mesa_version()
         if o.hardware == "bxt" or o.hardware == "kbl":
-            if "11.0" in mv:
+            if mv[:2] == [11, 0]:
                 print "WARNING: bxt not supported by stable mesa"
                 return
 
         if o.hardware == "sklgt4e":
-            if "12" in mv:
+            if mv[0] == 12:
                 print "WARNING: sklgt4e not supported by mesa 12"
                 return
 
         if o.hardware == "glk":
-            if "12" in mv or "13.0" in mv:
+            if mv[0] == 12 or mv[:2] == [13, 0]:
                 print "WARNING: glk not supported by stable mesa"
                 return
 
