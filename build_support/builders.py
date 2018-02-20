@@ -570,21 +570,6 @@ class PiglitTester(object):
             print('WARNING: cnl not supported until 18.0')
             return
 
-        if o.hardware == "bxt" or o.hardware == "kbl":
-            if mv[:2] == [11, 0]:
-                print "WARNING: bxt not supported by stable mesa"
-                return
-
-        if o.hardware == "sklgt4e":
-            if mv[0] == 12:
-                print "WARNING: sklgt4e not supported by mesa 12"
-                return
-
-        if o.hardware == "glk":
-            if mv[0] == 12 or mv[:2] == [13, 0]:
-                print "WARNING: glk not supported by stable mesa"
-                return
-
         dev_ids = { "byt" : "0x0F32",
                     "g45" : "0x2E22",
                     "g965" : "0x29A2",
